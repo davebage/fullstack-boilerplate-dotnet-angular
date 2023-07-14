@@ -4,12 +4,12 @@ namespace backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PingController : Controller
+    public class PingController : ControllerBase
     {
         [HttpGet]
-        public string Get()
+        public IActionResult Get()
         {
-            return "pong";
+            return Ok();
         }
     }
 }
