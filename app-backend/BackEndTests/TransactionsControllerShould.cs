@@ -15,7 +15,7 @@ namespace BackEndTests
         [Test]
         public void ReturnNotFoundStatusForInvalidTransactionId()
         {
-            var controller = new TransactionsController();
+            var controller = new TransactionsController(new TransactionsRepository(new TestableDateTimeProvider(), new TestableTransactionIdProvider()));
 
             var result = controller.GetTransactionForId(Guid.Empty);
 

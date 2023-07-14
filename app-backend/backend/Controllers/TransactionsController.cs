@@ -8,6 +8,13 @@ namespace backend.Controllers
     [ApiController]
     public class TransactionsController : ControllerBase
     {
+        private TransactionsRepository repository;
+
+        public TransactionsController(TransactionsRepository repository)
+        {
+            this.repository = repository;
+        }
+
         [HttpPost]
         public IActionResult CreateTransaction()
         {
@@ -24,7 +31,7 @@ namespace backend.Controllers
         [Route("{transaction_id}")]
         public IActionResult GetTransactionForId(Guid transaction_id)
         {
-            return NotFound("Transaction not found");
+            throw new NotImplementedException();
         }
     }
 }
