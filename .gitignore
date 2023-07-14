@@ -3,6 +3,9 @@ cypress/plugins
 cypress/support
 cypress/screenshots
 cypress/videos
+.vs
+app-backend/**/bin
+app-backend/**/obj
 
 # macOS
 .DS_Store
