@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace backend.Controllers
 {
-    public class TransactionsRepository
+    public class TransactionsRepository : ITransactionsRepository
     {
         private readonly DateTimeProvider _dateTimeProvider;
         private readonly TransactionIdProvider _transactionIdProvider;
@@ -33,7 +33,7 @@ namespace backend.Controllers
         }
 
         public Transaction[] GetAllTransactions() => 
-            _transactions.ToArray();
+            _transactions.OrderByDescending(x => x.created_at).ToArray();
 
         public Transaction GetTransactionById(Guid transactionId) => 
             _transactions.FirstOrDefault(x => x.transaction_id == transactionId);

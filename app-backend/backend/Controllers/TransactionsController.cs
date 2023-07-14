@@ -1,5 +1,4 @@
 ﻿using System;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
@@ -8,30 +7,40 @@ namespace backend.Controllers
     [ApiController]
     public class TransactionsController : ControllerBase
     {
-        private TransactionsRepository repository;
+        private readonly ITransactionsRepository _repository;
 
-        public TransactionsController(TransactionsRepository repository)
+        public TransactionsController(ITransactionsRepository repository)
         {
-            this.repository = repository;
+            this._repository = repository;
         }
 
         [HttpPost]
-        public IActionResult CreateTransaction()
+        public IActionResult CreateTransaction(TransactionRequest request)
         {
-            throw new NotImplementedException();
+            var transaction = _repository.AddTransaction(request.account_id, request.amount);
+
+            var actionName = nameof(GetTransactionForId);
+            var routeValues = new { transaction.transaction_id };
+            return CreatedAtAction(actionName, routeValues, transaction);
         }
 
         [HttpGet]
         public IActionResult GetTransactions()
         {
-            throw new NotImplementedException();
+            var transactions = _repository.GetAllTransactions();
+
+            return Ok(transactions);
         }
 
         [HttpGet]
         [Route("{transaction_id}")]
         public IActionResult GetTransactionForId(Guid transaction_id)
         {
-            throw new NotImplementedException();
+            var transaction = _repository.GetTransactionById(transaction_id);
+            if (transaction == null)
+                return NotFound("Transaction not found");
+
+            return Ok(transaction);
         }
     }
 }
