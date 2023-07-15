@@ -68,5 +68,42 @@ namespace BackEndTests
             var transaction = repository.GetTransactionById(expectedTransaction.transaction_id);
             transaction.Should().BeEquivalentTo(expectedTransaction);
         }
+
+        [Test]
+        public void ReturnAnAccountSummaryForAnExistingAccount()
+        {
+            var testableDateTimeProvider = new TestableDateTimeProvider();
+            var testableTransactionIdProvider = new TestableTransactionIdProvider();
+            var repository = new TransactionsRepository(
+                testableDateTimeProvider,
+                testableTransactionIdProvider);
+            var accountId1 = Guid.NewGuid();
+            var accountId2 = Guid.NewGuid();
+            repository.AddTransaction(accountId1, 100);
+            repository.AddTransaction(accountId1, 150);
+            repository.AddTransaction(accountId2, 150);
+
+            var result = repository.GetAllTransactionsForAccount(accountId1);
+            result.Should().NotBeNull();
+            result.account_id.Should().Be(accountId1);
+            result.balance.Should().Be(250);
+        }
+
+        [Test]
+        public void ReturnNullForAnInvalidAccount()
+        {
+            var testableDateTimeProvider = new TestableDateTimeProvider();
+            var testableTransactionIdProvider = new TestableTransactionIdProvider();
+            var repository = new TransactionsRepository(
+                testableDateTimeProvider,
+                testableTransactionIdProvider);
+            var accountId = Guid.NewGuid();
+
+            var result = repository.GetAllTransactionsForAccount(accountId);
+            result.Should().BeNull();
+
+
+
+        }
     }
 }

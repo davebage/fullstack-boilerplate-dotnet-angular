@@ -37,5 +37,18 @@ namespace backend.Controllers
 
         public Transaction GetTransactionById(Guid transactionId) => 
             _transactions.FirstOrDefault(x => x.transaction_id == transactionId);
+
+        public Account GetAllTransactionsForAccount(Guid accountId)
+        {
+            if (_transactions.Any(x => x.account_id == accountId))
+            {
+                var accountSum = _transactions.Where(x => x.account_id == accountId)
+                    .Sum(x => x.amount);
+
+                return new Account(accountId, accountSum);
+            }
+
+            return null;
+        }
     }
 }
