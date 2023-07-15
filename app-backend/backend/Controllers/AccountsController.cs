@@ -19,10 +19,10 @@ namespace backend.Controllers
         /// Returns the account data
         /// </summary>
         /// <param name="account_id"></param>
-        /// <returns></returns>
+        /// <returns>Account summary</returns>
         [HttpGet]
-        
         [Route("{account_id}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
         public IActionResult GetAccountData(Guid account_id)
