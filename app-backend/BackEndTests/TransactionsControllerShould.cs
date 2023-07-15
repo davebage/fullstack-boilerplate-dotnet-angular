@@ -1,4 +1,5 @@
 ﻿using backend.Controllers;
+using BackEndTests.Providers;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
