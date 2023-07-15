@@ -5,5 +5,6 @@
     &lt;TestId&gt;NUnit3x::352EF17C-BB4D-405A-875B-B6AC2E58C470::net7.0::BackEndTests.TransactionsControllerShould.ReturnCreatedStatusAndTransactionTypeWhenSaveTransaction&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::352EF17C-BB4D-405A-875B-B6AC2E58C470::net7.0::BackEndTests.TransactionsControllerShould&lt;/TestId&gt;&#xD;
     &lt;TestId&gt;NUnit3x::352EF17C-BB4D-405A-875B-B6AC2E58C470::net7.0::BackEndTests.TransactionRepositoryShould&lt;/TestId&gt;&#xD;
+    &lt;TestId&gt;NUnit3x::352EF17C-BB4D-405A-875B-B6AC2E58C470::net7.0::BackEndTests.AccountsControllerShould&lt;/TestId&gt;&#xD;
   &lt;/TestAncestor&gt;&#xD;
 &lt;/SessionState&gt;</s:String></wpf:ResourceDictionary>
