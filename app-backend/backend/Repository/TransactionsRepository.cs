@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using backend.Models;
+using backend.Providers;
 
-namespace backend.Controllers
+namespace backend.Repository
 {
     public class TransactionsRepository : ITransactionsRepository
     {
@@ -10,11 +12,11 @@ namespace backend.Controllers
         private readonly TransactionIdProvider _transactionIdProvider;
         private readonly List<Transaction> _transactions;
 
-        public TransactionsRepository(DateTimeProvider dateTimeProvider, 
+        public TransactionsRepository(DateTimeProvider dateTimeProvider,
             TransactionIdProvider transactionIdProvider)
         {
-            this._dateTimeProvider = dateTimeProvider;
-            this._transactionIdProvider = transactionIdProvider;
+            _dateTimeProvider = dateTimeProvider;
+            _transactionIdProvider = transactionIdProvider;
             _transactions = new List<Transaction>();
         }
 
@@ -32,10 +34,10 @@ namespace backend.Controllers
             return transaction;
         }
 
-        public Transaction[] GetAllTransactions() => 
+        public Transaction[] GetAllTransactions() =>
             _transactions.OrderByDescending(x => x.created_at).ToArray();
 
-        public Transaction GetTransactionById(Guid transactionId) => 
+        public Transaction GetTransactionById(Guid transactionId) =>
             _transactions.FirstOrDefault(x => x.transaction_id == transactionId);
 
         public Account GetAllTransactionsForAccount(Guid accountId)

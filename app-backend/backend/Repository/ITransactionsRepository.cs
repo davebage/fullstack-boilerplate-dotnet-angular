@@ -1,6 +1,7 @@
 ﻿using System;
+using backend.Models;
 
-namespace backend.Controllers;
+namespace backend.Repository;
 
 public interface ITransactionsRepository
 {

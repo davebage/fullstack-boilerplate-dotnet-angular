@@ -1,4 +1,6 @@
 ﻿using backend.Controllers;
+using backend.Models;
+using backend.Repository;
 using BackEndTests.Providers;
 using FluentAssertions;
 

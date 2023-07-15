@@ -1,4 +1,4 @@
-﻿using backend.Controllers;
+﻿using backend.Providers;
 
 namespace BackEndTests.Providers;
 

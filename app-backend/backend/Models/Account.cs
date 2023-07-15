@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace backend.Controllers;
+namespace backend.Models;
 
 public class Account
 {
@@ -9,7 +9,7 @@ public class Account
 
     public Account(Guid accountId, int accountSum)
     {
-        this.account_id = accountId;
-        this.balance = accountSum;
+        account_id = accountId;
+        balance = accountSum;
     }
 }

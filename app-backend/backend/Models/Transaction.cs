@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace backend.Controllers;
+namespace backend.Models;
 
 public class Transaction
 {

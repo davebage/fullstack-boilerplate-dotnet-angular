@@ -1,4 +1,7 @@
 using backend.Controllers;
+using backend.Models;
+using backend.Providers;
+using backend.Repository;
 using FluentAssertions;
 using Microsoft.AspNetCore.Mvc;
 using Moq;
