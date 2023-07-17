@@ -6,7 +6,7 @@ namespace backend.Models;
 public class TransactionRequest
 {
     [Required]
-    public Guid account_id;
+    public Guid account_id { get; set; }
     [Required]
-    public int amount;
+    public int amount { get; set; }
 }

@@ -4,9 +4,9 @@ namespace backend.Models;
 
 public class Transaction
 {
-    public Guid account_id;
-    public Guid transaction_id;
-    public int amount;
-    public DateTime created_at;
+    public Guid account_id { get; set; }
+    public Guid transaction_id { get; set; }
+    public int amount { get; set; }
+    public DateTime created_at { get; set; }
 
 }
