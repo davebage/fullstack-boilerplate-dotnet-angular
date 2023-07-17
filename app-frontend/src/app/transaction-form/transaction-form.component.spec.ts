@@ -1,6 +1,9 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { TransactionFormComponent } from './transaction-form.component';
+import { RESTAPIService } from '../restapi.service';
+import { HttpClient, HttpHandler } from '@angular/common/http';
+import { NgForm } from '@angular/forms';
 
 describe('TransactionFormComponent', () => {
   let component: TransactionFormComponent;
@@ -8,6 +11,7 @@ describe('TransactionFormComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
+      providers: [ HttpClient, HttpHandler ],
       declarations: [ TransactionFormComponent ]
     })
     .compileComponents();
