@@ -1,18 +1,17 @@
-<p>transaction-form works!</p>
-<div class="container">
+<div class="panel panel-default">
     <h3>Submit new transaction</h3>
     <form (ngSubmit)="onSubmit(transactionForm)" #transactionForm="ngForm">
-        <div class="form-group">
+        <div class="form-group" >
             <label for="account_id">Account ID:</label><br />
             <input type="text"
-                   required
-                   data-type="account-id"
-                   name="account_id"
-                   [(ngModel)]="model.account_id"
-                   pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
-                   id="account_id" 
-                   placeholder="6B29FC40-CA47-1067-B31D-00DD010662DA"
-                   #account_id="ngModel" />
+                    required
+                    data-type="account-id"
+                    name="account_id"
+                    [(ngModel)]="model.account_id"
+                    pattern="[0-9a-fA-F]{8}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{4}-[0-9a-fA-F]{12}"
+                    id="account_id" 
+                    placeholder="6B29FC40-CA47-1067-B31D-00DD010662DA"
+                    #account_id="ngModel" />
             <div [hidden]="account_id.valid || account_id.pristine"
                  class="alert alert-danger">
                  Account Id is required
@@ -33,9 +32,8 @@
             </div>
         </div>
         <input data-type="transaction-submit" 
-               type="submit" 
-               class="btn btn-success"
-               [disabled]="!transactionForm.form.valid" />
+                type="submit" 
+                class="btn btn-success btn-block"
+                [disabled]="!transactionForm.form.valid" />
     </form>
 </div>
-
