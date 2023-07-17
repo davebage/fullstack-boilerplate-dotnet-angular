@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders } from '@angular/common/http'
+import { HttpClient } from '@angular/common/http'
 import { TransactionRequestAPIModel } from './transaction-request-apimodel';
 import { Transaction } from './transaction';
 
@@ -9,22 +9,15 @@ import { Transaction } from './transaction';
 export class RESTAPIService {
   constructor(private http: HttpClient) { }
 
-  httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json'
-    })
-  };
-
-  postTransaction(transactionrequest: TransactionRequestAPIModel) {
+  createTransaction(transactionrequest: TransactionRequestAPIModel) {
     console.log("Posting");
-    let url = "http://localhost:3000/transaction";
-    this.http.post<TransactionRequestAPIModel>(url, transactionrequest, this.httpOptions);
+    let url = "http://localhost:5000/transactions";
 
-    this.http.post<Transaction>(url, transactionrequest).subscribe(data => {
-      let temp = new Transaction(data.transaction_id, data.account_id, data.amount, data.created_at);
-      return temp;
-  })
-
-
-  }
+    this.http.post<Transaction>(url, transactionrequest).subscribe(
+      data => {
+        let temp = new Transaction(data.transaction_id, data.account_id, data.amount, data.created_at);
+        console.log(temp.account_id + "|" + temp.transaction_id + "|" + temp.amount + "|" + temp.created_at);
+        return temp;
+     })
+  };
 }
