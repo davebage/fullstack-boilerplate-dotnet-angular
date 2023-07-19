@@ -1,4 +1,9 @@
-<p>transaction-list works!</p>
-<app-transaction-item></app-transaction-item>
-<app-transaction-item></app-transaction-item>
-<app-transaction-item></app-transaction-item>
+<div *ngFor="let transaction of transactionList; let i = index">
+    <app-transaction-item 
+            [data-id]="i"
+            [data-type]="transaction" 
+            [data-account-id]="transaction.account_id" 
+            [data-amount]="transaction.amount"
+            [data-balance]="transaction.accountBalance">
+    </app-transaction-item>
+</div>

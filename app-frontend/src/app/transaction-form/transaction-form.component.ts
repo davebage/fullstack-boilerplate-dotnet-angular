@@ -21,10 +21,10 @@ export class TransactionFormComponent {
     this.submitted = true;
     if(transactionForm.valid)
     {
-      console.log("Transaction:" + this.model.account_id + "|" + this.model.amount);
-      let thisRequest = new TransactionRequestAPIModel(this.model.account_id, this.model.amount);
-      this.service.createTransaction(thisRequest);
-      transactionForm.reset();
+      this.service.createTransaction(this.model.account_id, this.model.amount).subscribe(data => {
+        console.log(data);
+        transactionForm.reset();
+      });
     }
   }
 }

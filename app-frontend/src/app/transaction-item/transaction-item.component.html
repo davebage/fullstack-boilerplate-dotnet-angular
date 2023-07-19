@@ -1,1 +1,8 @@
-<p>transaction-item works!</p>
+<div class="panel panel-default">
+    <div class="container">
+        <p>Transferred {{ transactionAmount }}$ 
+            {{ fromToAccount }} account {{ accountId }}</p>
+
+        <div *ngIf="showBalance">The current account balance is {{ accountBalance }}$</div>        
+    </div>
+</div>
