@@ -1,16 +1,23 @@
 import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppRoutingModule } from './app-routing.module';
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
+import { TransactionFormComponent } from './transaction-form/transaction-form.component';
+import { TransactionItemComponent } from './transaction-item/transaction-item.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
   imports: [
+    FormsModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
+  ],
+  declarations: [
+    AppComponent,
+    TransactionFormComponent,
+    TransactionItemComponent
   ],
   providers: [],
   bootstrap: [AppComponent]

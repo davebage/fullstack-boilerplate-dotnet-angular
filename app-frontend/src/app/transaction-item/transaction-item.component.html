@@ -1,0 +1,11 @@
+    <div class="panel-body" 
+        data-type="transaction"
+        [attr.data-account-id]="accountId"
+        [attr.data-amount]="transactionAmount"
+        [attr.data-balance]="accountBalance">
+        
+        <p>Transferred {{ transactionAmount }}$ 
+            {{ fromToAccount }} account {{ accountId }}</p>
+
+        <div *ngIf="accountBalance">The current account balance is {{ accountBalance }}$</div>        
+    </div>

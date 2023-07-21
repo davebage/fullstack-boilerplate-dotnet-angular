@@ -1,15 +1,21 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 
 namespace backend.Controllers
 {
     [ApiController]
     [Route("[controller]")]
-    public class PingController : Controller
+    [ProducesResponseType(StatusCodes.Status200OK)]
+    public class PingController : ControllerBase
     {
+        /// <summary>
+        /// Healthcheck to make sure the service is up
+        /// </summary>
+        /// <returns></returns>
         [HttpGet]
-        public string Get()
+        public IActionResult Get()
         {
-            return "pong";
+            return Ok();
         }
     }
 }
