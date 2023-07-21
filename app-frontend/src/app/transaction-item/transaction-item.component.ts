@@ -12,10 +12,9 @@ export class TransactionItemComponent implements OnInit {
   @Input("data-amount") transactionAmount : number = 0;
   @Input("data-balance") accountBalance : string = "";
 
-  public showBalance:boolean = true;
   public fromToAccount: string = "";
+  
   ngOnInit(): void {
-    this.showBalance = this.transactionId == 0;
     this.fromToAccount = (this.transactionAmount < 0) ? "from" : "to"
   }
 }
